@@ -22,47 +22,50 @@ def intent_received(hermes, intent_message):
 	print()
 	print('start debug')
 	
-	city = intent_message.slots.city.first().value
-	print(city)
-	responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+city+'&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
-	print(responseApiXy)
-	print(responseApiXy.content)
-	dataApiXy = responseApiXy.json()
-	print(dataApiXy)
-	lat = dataApiXy['results'][-1]['geometry']['location']['lat']
-	print(lat)
-	lng = dataApiXy['results'][-1]['geometry']['location']['lng']
-	print(lng)
-	headers = {'accept': 'application/json', 'authorization': 'Basic anVub246UlFXSnVub25YcG0yWA=='}
-	url = 'https://junon---develop-sr3snxi-ma2sa5nwhuqdk.fr-1.platformsh.site/v1/air/quality?lat='+str(lat)+'&lon='+str(lng)
-	print(url)
-	response = requests.get(url, headers=headers)
-	print(response)
-	print(response.content)
-	data = response.json()
-	print(data)
-	aqi = data['breezometer_aqi']
-	print(aqi)
-	quality_word = 'mauvaise'
-	if aqi >= 80:
-	  quality_word = 'bonne'
-	elif aqi >= 60:
-	  quality_word = 'moyenne'
-
-	print(quality_word)
+	
 	print(intent_message.intent.intent_name)
 	print()
 
-	if "askTime" in intent_message.intent.intent_name:
+	#if "askTime" in intent_message.intent.intent_name:
 		
-		sentence = "La qualitai de l'air a "+ city +" est "
-		print(intent_message.intent.intent_name)
+	#	sentence = "La qualitai de l'air a "+ city +" est "
+	#	print(intent_message.intent.intent_name)
 		
-		sentence += verbalise_air_quality(aqi)
-		print(sentence)
-		hermes.publish_end_session(intent_message.session_id, sentence)
+	#	sentence += verbalise_air_quality(aqi)
+	#	print(sentence)
+	#	hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif "cityForAirQuality" in intent_message.intent.intent_name:
+	if "cityForAirQuality" in intent_message.intent.intent_name:
+		
+		city = intent_message.slots.city.first().value
+		print(city)
+		responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+city+'&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
+		print(responseApiXy)
+		print(responseApiXy.content)
+		dataApiXy = responseApiXy.json()
+		print(dataApiXy)
+		lat = dataApiXy['results'][-1]['geometry']['location']['lat']
+		print(lat)
+		lng = dataApiXy['results'][-1]['geometry']['location']['lng']
+		print(lng)
+		headers = {'accept': 'application/json', 'authorization': 'Basic anVub246UlFXSnVub25YcG0yWA=='}
+		url = 'https://junon---develop-sr3snxi-ma2sa5nwhuqdk.fr-1.platformsh.site/v1/air/quality?lat='+str(lat)+'&lon='+str(lng)
+		print(url)
+		response = requests.get(url, headers=headers)
+		print(response)
+		print(response.content)
+		data = response.json()
+		print(data)
+		aqi = data['breezometer_aqi']
+		print(aqi)
+		quality_word = 'mauvaise'
+		if aqi >= 80:
+		  quality_word = 'bonne'
+		elif aqi >= 60:
+		  quality_word = 'moyenne'
+
+		print(quality_word)
+		
 		sentence = "La qualitai de l'air a "+ city +" est "
 		print(intent_message.intent.intent_name)
 		
@@ -73,8 +76,9 @@ def intent_received(hermes, intent_message):
 		
 	elif "propose1" in intent_message.intent.intent_name:
 		
-		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
 		print(intent_message.intent.intent_name)
+		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
+		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 
 
