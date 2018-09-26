@@ -21,6 +21,16 @@ def intent_received(hermes, intent_message):
 
 	print()
 	print('start debug')
+	
+	city = intent_message.slots.city.first().value
+	print(city)
+	responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+city+'&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
+	print(responseApiXy)
+	print(responseApiXy.content)
+	dataApiXy = responseApiXy.json()
+	print(dataApiXy)
+	results = dataApiXy['results']
+	print(results)
 	headers = {'accept': 'application/json', 'authorization': 'Basic anVub246UlFXSnVub25YcG0yWA=='}
 	response = requests.get('https://junon---develop-sr3snxi-ma2sa5nwhuqdk.fr-1.platformsh.site/v1/air/quality?lat=12.971599&lon=77.594563', headers=headers)
 	print(response)
@@ -36,13 +46,6 @@ def intent_received(hermes, intent_message):
 	  quality_word = 'moyenne'
 
 	print(quality_word)
-	city = intent_message.slots.city.first().value
-	print(city)
-	responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+city+'&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
-	print(responseApiXy)
-	print(responseApiXy.content)
-	dataApiXy = responseApiXy.json()
-	print(dataApiXy)
 	print(intent_message.intent.intent_name)
 	print()
 
