@@ -71,7 +71,7 @@ def intent_received(hermes, intent_message):
 
 	if intent_message.intent.intent_name == 'Joseph:askTime':
 
-		sentence = 'La qualité de l\'air est '
+		sentence = 'La qualite de l air est '
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
