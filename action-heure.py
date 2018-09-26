@@ -82,7 +82,7 @@ def intent_received(hermes, intent_message):
 		
 	elif "cityForAirQuality" in intent_message.intent.intent_name:
 	#elif intent_message.intent.intent_name == 'Joseph:cityForAirQuality':
-		sentence = 'La qualitai de lair est '
+		sentence = "La qualitai de l'air a "+ city +" est "
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
