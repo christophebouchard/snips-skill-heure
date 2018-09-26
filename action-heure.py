@@ -68,6 +68,11 @@ def intent_received(hermes, intent_message):
 	print(quality_word)
 	city = intent_message.slots.city.first().value
 	print(city)
+	responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address=paris&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
+	print(responseApiXy)
+	print(responseApiXy.content)
+	dataApiXy = responseApiXy.json()
+	print(dataApiXy)
 	print(intent_message.intent.intent_name)
 	print()
 
