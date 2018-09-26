@@ -41,6 +41,12 @@ def intent_received(hermes, intent_message):
 
 	print()
 	print('start debug')
+	headers = {'accept': 'application/json', 'authorization': 'Basic anVub246UlFXSnVub25YcG0yWA=='}
+	response = requests.get('https://junon---develop-sr3snxi-ma2sa5nwhuqdk.fr-1.platformsh.site/v1/air/quality?lat=12.971599&lon=77.594563', headers=headers)
+	print(response)
+	print(response.content)
+	data = response.json()
+	print(data)
 	print(intent_message.intent.intent_name)
 	print()
 
