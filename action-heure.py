@@ -9,35 +9,6 @@ MQTT_IP_ADDR = "localhost"
 MQTT_PORT = 1883
 MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
-
-def verbalise_hour(i):
-	if i == 0:
-		return "minuit"
-	elif i == 1:
-		return "une heure"
-	elif i == 12:
-		return "midi"
-	elif i == 21:
-		return "vingt et une heures"
-	else:
-		return "{0} heures".format(str(i)) 
-
-def verbalise_minute(i):
-	if i == 0:
-		return ""
-	elif i == 1:
-		return "une"
-	elif i == 21:
-		return "vingt et une"
-	elif i == 31:
-		return "trente et une"
-	elif i == 41:
-		return "quarante et une"
-	elif i == 51:
-		return "cinquante et une"
-	else:
-		return "{0}".format(str(i))
-
 def verbalise_air_quality(aqi):
 	if aqi >= 80:
 		return 'bonne'
@@ -45,7 +16,6 @@ def verbalise_air_quality(aqi):
 		return 'moyenne'
 	else:
 		return 'mauvaise'
-
 
 def intent_received(hermes, intent_message):
 
@@ -68,7 +38,7 @@ def intent_received(hermes, intent_message):
 	print(quality_word)
 	city = intent_message.slots.city.first().value
 	print(city)
-	responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address=paris&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
+	responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+city+'&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
 	print(responseApiXy)
 	print(responseApiXy.content)
 	dataApiXy = responseApiXy.json()
