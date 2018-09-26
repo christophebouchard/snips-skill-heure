@@ -63,19 +63,19 @@ def intent_received(hermes, intent_message):
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
 	elif "cityForAirQuality" in intent_message.intent.intent_name:
-	#elif intent_message.intent.intent_name == 'Joseph:cityForAirQuality':
 		sentence = "La qualitai de l'air a "+ city +" est "
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
-		sentence += "il n'est pas recommandai de faire des efforts a l'extairieur. Souhaitez vous que je vous propose une alternative."
+		sentence += " il n'est pas recommandai de faire des efforts a l'extairieur. Souhaitez vous que je vous propose une alternative."
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif "greetings" in intent_message.intent.intent_name:
-	#elif intent_message.intent.intent_name == 'Joseph:greetings':
-
-		hermes.publish_end_session(intent_message.session_id, "De rien!")
+	elif "propose1" in intent_message.intent.intent_name:
+		
+		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
+		print(intent_message.intent.intent_name)
+		hermes.publish_end_session(intent_message.session_id, sentence)
 
 
 with Hermes(MQTT_ADDR) as h:
