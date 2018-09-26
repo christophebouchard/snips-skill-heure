@@ -66,12 +66,12 @@ def intent_received(hermes, intent_message):
 	  quality_word = 'moyenne'
 
 	print(quality_word)
-	city = intent_message.slots.city.first().value
-	print(city)
+	#city = intent_message.slots.city.first().value
+	#print(city)
 	print(intent_message.intent.intent_name)
 	print()
 
-	if intent_message.intent.intent_name == 'Joseph:askTime':
+	if "askTime" in info["intent"]["intentName"]:
 		
 		sentence = 'La qualitai de lair est '
 		print(intent_message.intent.intent_name)
@@ -80,7 +80,8 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif intent_message.intent.intent_name == 'Joseph:cityForAirQuality':
+	elif "cityForAirQuality" in info["intent"]["intentName"]:
+	#elif intent_message.intent.intent_name == 'Joseph:cityForAirQuality':
 		sentence = 'La qualitai de lair est '
 		print(intent_message.intent.intent_name)
 		
@@ -88,7 +89,8 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif intent_message.intent.intent_name == 'Joseph:greetings':
+	elif "greetings" in info["intent"]["intentName"]:
+	#elif intent_message.intent.intent_name == 'Joseph:greetings':
 
 		hermes.publish_end_session(intent_message.session_id, "De rien!")
 
