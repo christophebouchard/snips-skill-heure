@@ -66,6 +66,8 @@ def intent_received(hermes, intent_message):
 	  quality_word = 'moyenne'
 
 	print(quality_word)
+	city = intentMessage.slots.city.first().value
+	print(city)
 	print(intent_message.intent.intent_name)
 	print()
 
