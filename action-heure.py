@@ -35,7 +35,15 @@ def verbalise_minute(i):
 	elif i == 51:
 		return "cinquante et une"
 	else:
-		return "{0}".format(str(i)) 
+		return "{0}".format(str(i))
+
+def verbalise_air_quality(texte):
+	if aqi >= 80:
+		return 'bonne'
+	elif aqi >= 60:
+		return 'moyenne'
+	else:
+		return 'mauvaise'
 
 
 def intent_received(hermes, intent_message):
@@ -62,6 +70,7 @@ def intent_received(hermes, intent_message):
 
 	if intent_message.intent.intent_name == 'Joseph:askTime':
 
+		"""
 		sentence = 'Il est '
 		print(intent_message.intent.intent_name)
 
@@ -72,7 +81,13 @@ def intent_received(hermes, intent_message):
 
 		# hermes.publish_continue_session(intent_message.session_id, sentence, ["Joseph:greetings"])
 		hermes.publish_end_session(intent_message.session_id, sentence)
-
+		"""
+		sentence = 'La qualité de l\'air est '
+		print(intent_message.intent.intent_name)
+		
+		sentence += verbalise_air_quality(aqi)
+		print(sentence)
+		
 	elif intent_message.intent.intent_name == 'Joseph:greetings':
 
 		hermes.publish_end_session(intent_message.session_id, "De rien!")
