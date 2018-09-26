@@ -38,7 +38,7 @@ def verbalise_minute(i):
 	else:
 		return "{0}".format(str(i))
 
-def verbalise_air_quality(texte):
+def verbalise_air_quality(aqi):
 	if aqi >= 80:
 		return 'bonne'
 	elif aqi >= 60:
