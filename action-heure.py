@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 from hermes_python.hermes import Hermes
 from datetime import datetime
 from pytz import timezone
@@ -70,19 +71,7 @@ def intent_received(hermes, intent_message):
 
 	if intent_message.intent.intent_name == 'Joseph:askTime':
 
-		"""
-		sentence = 'Il est '
-		print(intent_message.intent.intent_name)
-
-		now = datetime.now(timezone('Europe/Paris'))
-
-		sentence += verbalise_hour(now.hour) + " " + verbalise_minute(now.minute)
-		print(sentence)
-
-		# hermes.publish_continue_session(intent_message.session_id, sentence, ["Joseph:greetings"])
-		hermes.publish_end_session(intent_message.session_id, sentence)
-		"""
-		sentence = "La qualité de l'air est "
+		sentence = 'La qualité de l\'air est '
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
