@@ -71,7 +71,7 @@ def intent_received(hermes, intent_message):
 	print(intent_message.intent.intent_name)
 	print()
 
-	if "askTime" in info["intent"]["intentName"]:
+	if "askTime" in intent_message.intent.intent_name:
 		
 		sentence = 'La qualitai de lair est '
 		print(intent_message.intent.intent_name)
@@ -80,7 +80,7 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif "cityForAirQuality" in info["intent"]["intentName"]:
+	elif "cityForAirQuality" in intent_message.intent.intent_name:
 	#elif intent_message.intent.intent_name == 'Joseph:cityForAirQuality':
 		sentence = 'La qualitai de lair est '
 		print(intent_message.intent.intent_name)
@@ -89,7 +89,7 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif "greetings" in info["intent"]["intentName"]:
+	elif "greetings" in intent_message.intent.intent_name:
 	#elif intent_message.intent.intent_name == 'Joseph:greetings':
 
 		hermes.publish_end_session(intent_message.session_id, "De rien!")
