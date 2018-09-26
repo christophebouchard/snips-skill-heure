@@ -82,7 +82,7 @@ def intent_received(hermes, intent_message):
 		# hermes.publish_continue_session(intent_message.session_id, sentence, ["Joseph:greetings"])
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		"""
-		sentence = 'La qualité de l\'air est '
+		sentence = "La qualité de l'air est "
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
