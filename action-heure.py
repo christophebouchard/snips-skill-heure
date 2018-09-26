@@ -66,14 +66,14 @@ def intent_received(hermes, intent_message):
 	  quality_word = 'moyenne'
 
 	print(quality_word)
-	#city = intent_message.slots.city.first().value
-	#print(city)
+	city = intent_message.slots.city.first().value
+	print(city)
 	print(intent_message.intent.intent_name)
 	print()
 
 	if "askTime" in intent_message.intent.intent_name:
 		
-		sentence = 'La qualitai de lair est '
+		sentence = "La qualitai de l'air a "+ city +" est "
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
