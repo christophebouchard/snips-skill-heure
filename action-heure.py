@@ -68,6 +68,7 @@ def intent_received(hermes, intent_message):
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
+		sentence += "il n'est pas recommandai de faire des efforts a l'extairieur. Souhaitez vous que je vous propose une alternative."
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
