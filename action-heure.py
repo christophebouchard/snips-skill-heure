@@ -48,6 +48,15 @@ def intent_received(hermes, intent_message):
 	print(response.content)
 	data = response.json()
 	print(data)
+	aqi = data['breezometer_aqi']
+	print(aqi)
+	quality_word = 'mauvaise'
+	if aqi >= 80:
+	  quality_word = 'bonne'
+	elif aqi >= 60:
+	  quality_word = 'moyenne'
+
+	print(quality_word)
 	print(intent_message.intent.intent_name)
 	print()
 
