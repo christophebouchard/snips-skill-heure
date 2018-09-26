@@ -40,8 +40,9 @@ def verbalise_minute(i):
 def intent_received(hermes, intent_message):
 
 	print()
+	print('start debug')
 	print(intent_message.intent.intent_name)
-	print ()
+	print()
 
 	if intent_message.intent.intent_name == 'Joseph:askTime':
 
