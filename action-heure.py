@@ -4,6 +4,7 @@ from hermes_python.hermes import Hermes
 from datetime import datetime
 from pytz import timezone
 import requests
+import codecs
 
 MQTT_IP_ADDR = "localhost"
 MQTT_PORT = 1883
@@ -70,8 +71,11 @@ def intent_received(hermes, intent_message):
 	print()
 
 	if intent_message.intent.intent_name == 'Joseph:askTime':
-
-		sentence = u'La qualité de l\'air est '
+		
+		test='àùé'
+		montexte=test.encode('utf-8')
+		print(montexte)
+		sentence = 'La qualite de l\'air est '
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
