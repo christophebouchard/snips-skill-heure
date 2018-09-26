@@ -78,6 +78,14 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
+	elif intent_message.intent.intent_name == 'Joseph:cityForAirQuality':
+		sentence = 'La qualitai de lair est '
+		print(intent_message.intent.intent_name)
+		
+		sentence += verbalise_air_quality(aqi)
+		print(sentence)
+		hermes.publish_end_session(intent_message.session_id, sentence)
+		
 	elif intent_message.intent.intent_name == 'Joseph:greetings':
 
 		hermes.publish_end_session(intent_message.session_id, "De rien!")
