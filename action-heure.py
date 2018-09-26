@@ -25,15 +25,6 @@ def intent_received(hermes, intent_message):
 	
 	print(intent_message.intent.intent_name)
 	print()
-
-	#if "askTime" in intent_message.intent.intent_name:
-		
-	#	sentence = "La qualitai de l'air a "+ city +" est "
-	#	print(intent_message.intent.intent_name)
-		
-	#	sentence += verbalise_air_quality(aqi)
-	#	print(sentence)
-	#	hermes.publish_end_session(intent_message.session_id, sentence)
 		
 	if "cityForAirQuality" in intent_message.intent.intent_name:
 		
@@ -74,7 +65,7 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
-	elif "propose1" in intent_message.intent.intent_name:
+	elif "proposition1" in intent_message.intent.intent_name:
 		
 		print(intent_message.intent.intent_name)
 		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
