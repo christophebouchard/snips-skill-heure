@@ -58,11 +58,11 @@ def intent_received(hermes, intent_message):
 
 		print(quality_word)
 		
-		sentence = "La qualitai de l'air a "+ city +" est "
+		sentence = "La qualiter de l'air a "+ city +" est "
 		print(intent_message.intent.intent_name)
 		
 		sentence += verbalise_air_quality(aqi)
-		sentence += " il n'est pas recommandai de faire des efforts a l'extairieur. Souhaitez vous que je vous propose une alternative."
+		sentence += " il n'est pas recommander de faire des efforts a l'extairieur. Souhaitez vous que je vous propose une alternative."
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
@@ -70,7 +70,7 @@ def intent_received(hermes, intent_message):
 		
 		print('proposition1')
 		print(intent_message.intent.intent_name)
-		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
+		sentence = "Il est praivue que la qualiter de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
@@ -94,7 +94,7 @@ def intent_received(hermes, intent_message):
 		
 		print('sponsor')
 		print(intent_message.intent.intent_name)
-		sentence = "Je sais qu'ils sont fatiguets. fatiguay, fatigay, fatiguai, fatiguait, fatigai, fatiguais, fatiguer, qualiter mais nous avons encore besoin d'eux !"
+		sentence = "Je sais qu'ils sont fatiguer, mais nous avons encore besoin d'eux !"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
