@@ -71,6 +71,13 @@ def intent_received(hermes, intent_message):
 		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
+		
+	elif "proposition2" in intent_message.intent.intent_name:
+		
+		print(intent_message.intent.intent_name)
+		sentence = "Je peux vous proposer un programme de fitness sur votre TV. Souhaitez-vous lancer le programme ?"
+		print(sentence)
+		hermes.publish_end_session(intent_message.session_id, sentence)
 
 
 with Hermes(MQTT_ADDR) as h:
