@@ -28,6 +28,7 @@ def intent_received(hermes, intent_message):
 		
 	if "cityForAirQuality" in intent_message.intent.intent_name:
 		
+		print('cityForAirQuality')
 		city = intent_message.slots.city.first().value
 		print(city)
 		responseApiXy = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+city+'&key=AIzaSyAXJ589rS7Lpp7pUFHww59qxwOcD5kMeoM')
@@ -67,6 +68,7 @@ def intent_received(hermes, intent_message):
 		
 	elif "proposition1" in intent_message.intent.intent_name:
 		
+		print('proposition1')
 		print(intent_message.intent.intent_name)
 		sentence = "Il est praivue que la qualitai de l'air s'amailiore, vous pouvez aller courir a partir de 19 heures"
 		print(sentence)
@@ -74,6 +76,7 @@ def intent_received(hermes, intent_message):
 		
 	elif "proposition2" in intent_message.intent.intent_name:
 		
+		print('proposition2')
 		print(intent_message.intent.intent_name)
 		sentence = "Je peux vous proposer un programme de fitness sur votre TV. Souhaitez-vous lancer le programme ?"
 		print(sentence)
@@ -81,6 +84,7 @@ def intent_received(hermes, intent_message):
 		
 	elif "proposition3" in intent_message.intent.intent_name:
 		
+		print('proposition3')
 		print(intent_message.intent.intent_name)
 		sentence = "Je praipare l'ambiance et c'est parti !"
 		print(sentence)
@@ -88,6 +92,7 @@ def intent_received(hermes, intent_message):
 		
 	else:
 		
+		print('else')
 		sentence = "Je ne vous ai pas compris reformulez votre demande !"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
