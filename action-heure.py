@@ -85,6 +85,13 @@ def intent_received(hermes, intent_message):
 		sentence = "Je praipare l'ambiance et c'est parti !"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
+		
+	else:
+		
+		print(intent_message.intent.intent_name)
+		sentence = "Je ne vous ai pas compris reformulez votre demande !"
+		print(sentence)
+		hermes.publish_end_session(intent_message.session_id, sentence)
 
 
 with Hermes(MQTT_ADDR) as h:
