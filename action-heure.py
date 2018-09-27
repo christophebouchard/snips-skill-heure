@@ -90,6 +90,14 @@ def intent_received(hermes, intent_message):
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
+	elif "sponsor" in intent_message.intent.intent_name:
+		
+		print('sponsor')
+		print(intent_message.intent.intent_name)
+		sentence = "Voter pour nous!"
+		print(sentence)
+		hermes.publish_end_session(intent_message.session_id, sentence)
+		
 	else:
 		
 		print('else')
