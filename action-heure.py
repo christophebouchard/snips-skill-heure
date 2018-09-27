@@ -82,7 +82,7 @@ def intent_received(hermes, intent_message):
 	elif "proposition3" in intent_message.intent.intent_name:
 		
 		print(intent_message.intent.intent_name)
-		sentence = "Je prépare l'ambiance et c'est parti !"
+		sentence = "Je prepare l'ambiance et c'est parti !"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 
