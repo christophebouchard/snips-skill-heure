@@ -94,7 +94,7 @@ def intent_received(hermes, intent_message):
 		
 		print('sponsor')
 		print(intent_message.intent.intent_name)
-		sentence = "Je sais qu'ils sont fatiguais mais nous avons encore besoin d'eux, ha! ha! ha! hai! hai!"
+		sentence = "Je sais qu'ils sont fatiguais mais nous avons encore besoin d'eux!"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
 		
