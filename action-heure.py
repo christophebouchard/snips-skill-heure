@@ -88,7 +88,6 @@ def intent_received(hermes, intent_message):
 		
 	else:
 		
-		print(intent_message.intent.intent_name)
 		sentence = "Je ne vous ai pas compris reformulez votre demande !"
 		print(sentence)
 		hermes.publish_end_session(intent_message.session_id, sentence)
