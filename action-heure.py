@@ -40,7 +40,7 @@ def intent_received(hermes, intent_message):
 		print(lat)
 		lng = dataApiXy['results'][-1]['geometry']['location']['lng']
 		print(lng)
-		headers = {'accept': 'application/json', 'authorization': 'Basic anVub246UlFXSnVub25YcG0yWA=='}
+		headers = {'accept': 'application/json', 'authorization': 'Basic '}
 		url = 'https://junon---develop-sr3snxi-ma2sa5nwhuqdk.fr-1.platformsh.site/v1/air/quality?lat='+str(lat)+'&lon='+str(lng)
 		print(url)
 		response = requests.get(url, headers=headers)
